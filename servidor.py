@@ -37,6 +37,15 @@ def logar():
     else:
         return render_template('login.html')
 
+
+@app.route('/listarusuarios')
+def listarusuarios():
+    us1 = Usuario('mirela', '1234', 'saberaverdade@gmail.com', "meio ambiente", '17/03/2009')
+    us2 = Usuario('junior', '8456', 'dancarino@gmail.com', "informatica", '06/06/2008')
+    lista = [us1, us2]
+    return render_template('listausuarios.html', lista=lista)
+
+
 #controle de acesso
 @app.route('/listarfofocas')
 def listar_fofocas():
@@ -53,6 +62,13 @@ def logout():
     #4 passo - fazer o logout
     session.clear()
     return render_template('login.html')
+
+
+@app.route('/filmes')
+def filmes():
+    filmes = [['a vida é bela', 2026], ['HP do bruxo', 2011]]
+    return render_template('index2.html', filmes=filmes)
+
 
 if __name__ == '__main__':
     app.run()

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes da Kekel</title>
+    <!-- O Flask gerencia arquivos estáticos pela rota 'static' -->
+    <link rel="stylesheet" href="../static/index2.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>filmes da kekel</h1>
+    </header>
+
+    <main class="content">
+        <h2>Catálogo de Filmes</h2>
+
+        <div class="movie-list">
+            <!-- Verifica se a lista de filmes foi passada e não está vazia -->
+            {% if filmes %}
+                {% for filme in filmes %}
+                    <div class="movie-card">
+                        <h3>{{ filme[0] }}</h3>
+
+                        <p><strong>Ano:</strong> {{ filme[1] }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="empty-state">
+                    <p>Nenhum filme foi inserido ainda.</p>
+                </div>
+            {% endif %}
+        </div>
+    </main>
+
+</body>
+</html>

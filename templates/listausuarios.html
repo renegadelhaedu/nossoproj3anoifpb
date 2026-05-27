@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>oi pessoal</h1>
+    <hr>
+    {%if lista%}
+        {% for usuario in lista %}
+            <p>{{usuario.nome}} | {{usuario.curso}}</p>
+        {% endfor %}
+    {% endif %}
+
+
+
+</body>
+</html>
