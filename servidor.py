@@ -2,11 +2,14 @@ from flask import *
 from config import db
 from modelos.usuario import Usuario
 from daos.usuario_dao import UsuarioDAO
+from blueprints.usuario_bp import usuario_bp
 
 app = Flask(__name__)
 #1 passo - senha secreta
 app.secret_key = 'KJ#H4k3jh412dasd'
 usuarios = []
+
+app.register_blueprint(usuario_bp)
 
 # (BD-1) bora configurar o banco na aplicacao
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banco.db'

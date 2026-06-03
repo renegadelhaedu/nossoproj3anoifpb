@@ -7,8 +7,8 @@
 <body>
     <h1>oi pessoal</h1>
     <hr>
-    {%if lista%}
-        {% for usuario in lista %}
+    {%if usuarios%}
+        {% for usuario in usuarios %}
             <p>{{usuario.nome}} | {{usuario.curso}}</p>
         {% endfor %}
     {% endif %}

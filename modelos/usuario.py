@@ -23,3 +23,6 @@ class Usuario(db.Model):
         self.curso = curso
         self.data_nascimento = data_nascimento
         self.senha = senha
+
+    def __repr__(self):
+        return f'{self.nome} - {self.email}'
