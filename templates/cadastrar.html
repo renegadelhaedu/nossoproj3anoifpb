@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="../static/cadastrar.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Novo Cadastro</h2>
+
+        <form action="/cadastrar" method="POST">
+
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" maxlength="150" required placeholder="Digite o nome do aluno">
+            </div>
+
+            <div class="form-group">
+                <label for="matricula">Matrícula</label>
+                <input type="text" id="matricula" name="matricula" maxlength="50" required placeholder="Ex: 20260101">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" maxlength="150" required placeholder="aluno@dominio.com">
+            </div>
+
+            <div class="form-group">
+                <label for="curso">Curso</label>
+                <select id="curso" name="curso" required>
+                    <option value="" disabled selected>Selecione o curso</option>
+                    <option value="Ciência da Computação">Ciência da Computação</option>
+                    <option value="Sistemas de Informação">Sistemas de Informação</option>
+                    <option value="Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
+                    <option value="Outro">Outro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="data">Data de Nascimento</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required placeholder="Crie uma senha forte">
+            </div>
+
+            <button type="submit" class="btn-submit">Realizar Cadastro</button>
+        </form>
+    </div>
+</body>
+</html>
