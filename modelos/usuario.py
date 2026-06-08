@@ -1,3 +1,4 @@
+#importar o teu objeto de conexao com o BD
 from config import db
 
 #(BD-4)galera, voces precisam herdar a classe model para que ele consiga mapear os objetos

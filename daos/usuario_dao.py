@@ -2,14 +2,14 @@
 from config import db
 from modelos.usuario import Usuario
 
-
+#objeto que contém os métodos de CRUD para acesso ao banco
 class UsuarioDAO:
     #definir métodos estáticos para serem acessados
     #nas rotas do servidor
     @staticmethod
     def salvar(usuario):
         db.session.add(usuario)
-        db.session.commit()
+        db.session.commit()#salvando e gravando ele no BD
 
     @staticmethod
     def listar_todos():

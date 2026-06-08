@@ -37,7 +37,7 @@ def cadastrar():
     curso = request.form.get('curso')
     data = request.form.get('data')
     senha = request.form.get('senha')
-
+    #instanciando um objeto da classe Usuario
     novo_usuario = Usuario(nome, matricula, email, curso, data, senha)
 
     # usuarios.append(novo_usuario)
