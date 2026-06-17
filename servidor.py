@@ -12,14 +12,15 @@ usuarios = []
 app.register_blueprint(usuario_bp)
 
 # (BD-1) bora configurar o banco na aplicacao
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banco.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost:5432/teste3anoifpb'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banco.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db.init_app(app)
 
 #(BD-2) assim que inicia o servidor, vc precisa gerar contexto para informar que a aplicação está executando
 #e assim pode-se fazer alteração no banco de dados via sqlalchemy
 with app.app_context():
-    db.create_all()
+    db.create_all()#responsável por criar a estrutura do BD
 
 #rotas ou endpoints
 @app.route('/')
@@ -56,7 +57,7 @@ def logar():
     if usuario.senha == senha:
         #2 passo: colocar o usuário na sessão
         session['usuario'] = login
-        return render_template('teste.html')
+        return render_template('logado.html')
     else:
         return render_template('login.html')
 

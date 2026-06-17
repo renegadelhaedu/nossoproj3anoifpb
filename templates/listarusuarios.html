@@ -1,18 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>oi pessoal</h1>
-    <hr>
-    {%if usuarios%}
-        {% for usuario in usuarios %}
-            <p>{{usuario.nome}} | {{usuario.curso}}</p>
-        {% endfor %}
-    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
 
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background-color:#f4f6f9;
+            display:flex;
+            justify-content:center;
+            padding:40px;
+        }
+
+        .container{
+            width:100%;
+            max-width:800px;
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+            color:#2c3e50;
+            margin-bottom:20px;
+        }
+
+        hr{
+            margin-bottom:25px;
+            border:none;
+            height:2px;
+            background:#3498db;
+        }
+
+        .usuarios{
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+        }
+
+        .usuario{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px;
+            background:#f8f9fa;
+            border-left:5px solid #3498db;
+            border-radius:8px;
+            transition:0.3s;
+        }
+
+        .usuario:hover{
+
+            background:#eef6ff;
+        }
+
+        .nome{
+            font-weight:bold;
+            color:#2c3e50;
+        }
+
+        .curso{
+            color:#666;
+        }
+
+        .sem-registros{
+            text-align:center;
+            color:#888;
+            padding:20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Lista de Usuários</h1>
+    <hr>
+
+    {% if usuarios %}
+        <div class="usuarios">
+            {% for usuario in usuarios %}
+                <div class="usuario">
+                    <span class="nome">{{ usuario.nome }}</span>
+                    <span class="curso">{{ usuario.curso }}</span>
+                    <a href="/usuarios/remover/{{usuario.email}}">Remover</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="sem-registros">Nenhum usuário cadastrado.</p>
+    {% endif %}
+</div>
 
 </body>
 </html>
