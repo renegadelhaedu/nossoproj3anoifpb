@@ -12,8 +12,8 @@ usuarios = []
 app.register_blueprint(usuario_bp)
 
 # (BD-1) bora configurar o banco na aplicacao
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost:5432/teste3anoifpb'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banco.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost:5432/teste3anoifpb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banco.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db.init_app(app)
 
